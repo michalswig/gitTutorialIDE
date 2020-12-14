@@ -1,19 +1,40 @@
 package com.kodilla.testing.shape;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ShapeCollector {
 
-    addFigure(Shape shape) {
+    private ArrayList<Shape> shapeArrayList = new ArrayList<Shape>();
 
+    public ShapeCollector(ArrayList<Shape> shapeArrayList) {
+        this.shapeArrayList = shapeArrayList;
     }
 
-    removeFigure(Shape shape) {
-
+    public void addFigure(Shape shape) {
+        shapeArrayList.add(shape);
     }
 
-    getFigure(int n) {
-
+    public void removeFigure(Shape shape) {
+        shapeArrayList.remove(shape);
     }
 
-    showFigures()
+    public Shape getFigure(int n) {
+        return shapeArrayList.get(n);
+    }
+
+    public ArrayList<Shape> showFigures() {
+        return shapeArrayList;
+    }
+
+    @Override
+    public String toString() {
+        return "ShapeCollector{" +
+                "shapeArrayList=" + shapeArrayList +
+                '}';
+    }
+
 
 }

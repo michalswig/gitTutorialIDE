@@ -2,9 +2,13 @@ package com.kodilla.testing.shape;
 
 public class Triangle implements Shape {
 
-    String shapeName = "triangle";
-    double baseLength;
-    double heightLength;
+    String shapeName;
+    double field;
+
+    public Triangle(double base, double height) {
+        this.shapeName = "triangle";
+        this.field = 0.5 * (base * height);
+    }
 
     @Override
     public String getShapeName() {
@@ -13,6 +17,16 @@ public class Triangle implements Shape {
 
     @Override
     public double getField() {
-        return (baseLength * heightLength)/2;
+        return field;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "shapeName='" + shapeName + '\'' +
+                ", field=" + field +
+                '}';
+    }
+
+
 }
