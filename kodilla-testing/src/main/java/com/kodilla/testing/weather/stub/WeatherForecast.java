@@ -52,8 +52,9 @@ public class WeatherForecast {
         Map<String, Double> resultMap = new HashMap<>();
         Double[] tableValues = new Double[resultMap.size()];
         for(Map.Entry<String, Double> entry: temperatures.getTemperatures().entrySet()) {
-            //tableValues[entry.getValue()];
+//            tableValues[entry.getValue()];
         }
-        return median(tableValues);
+        Double medianTemp = median(tableValues);
+        return medianTemp;
     }
 }
