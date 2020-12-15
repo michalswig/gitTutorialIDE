@@ -55,7 +55,7 @@ class WeatherForecastTestSuite {
         Double avgTemp = weatherForecast.calculateArithmeticAverageTemperature();
 
         //Then
-        Assertions.assertEquals(25.5, avgTemp);
+        Assertions.assertEquals(25.56, avgTemp);
 
     }
 
