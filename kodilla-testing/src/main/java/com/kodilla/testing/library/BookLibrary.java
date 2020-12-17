@@ -17,12 +17,16 @@ public class BookLibrary {
         List<Book> resultList = libraryDatabase
                 .listBooksWithCondition(titleFragment);
         if (resultList.size() > 20) return bookList;
-        bookList = resultList;
-        return bookList;
+        bookList = resultList;   return bookList;
     }
+
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        return null;
+        List<Book> bookList = new ArrayList<>();
+        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        if (resultList.size() == 0) {
+            return bookList;
+        }
+        return resultList;
     }
-
 }
