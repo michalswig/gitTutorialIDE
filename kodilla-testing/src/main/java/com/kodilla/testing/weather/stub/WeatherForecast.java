@@ -1,8 +1,6 @@
 package com.kodilla.testing.weather.stub;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class WeatherForecast {
     private Temperatures temperatures;
@@ -49,12 +47,12 @@ public class WeatherForecast {
     }
 
     public Double calculateMedianTemperature() {
-        Map<String, Double> resultMap = new HashMap<>();
-        Double[] tableValues = new Double[resultMap.size()];
-        for(Map.Entry<String, Double> entry: temperatures.getTemperatures().entrySet()) {
-        //tableValues[entry.getValue()];
-        }
-        Double medianTemp = median(tableValues);
-        return medianTemp;
+        Collection<Double> temp = temperatures.getTemperatures().values();
+        return median(temp.toArray(new Double[temp.size()]));
+
+        //metoda toArray nie wie jaki typ kolekcja, dlazcego zwraca Object
+        //jak paramter ma konkrtetny typ, to może zwrocic
+        //jak median bedzie przyjmowac colleciton, to nie trzeba w linii51 robic toARray
+
     }
 }
