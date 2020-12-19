@@ -24,7 +24,7 @@ public class ShapeCollectorTestSuite {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
-
+/*
     @Test
     public void testAddFigure() {
         //Given
@@ -58,6 +58,8 @@ public class ShapeCollectorTestSuite {
         Assertions.assertEquals(listToBe, listToTest);
 
     }
+ */
+
 
     @Test
     public void testGetFigure() {
