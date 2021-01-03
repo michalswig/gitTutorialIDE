@@ -41,8 +41,10 @@ public class WorldTestSuite {
 
         //When
         BigDecimal totalPeople = earth.getContinentList().stream()
-                .flatMap(continent -> continent.getCountryList().stream())
-                .map(Country::getPeopleQuantity).reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+                .flatMap(c -> c.getCountryList().stream())
+                .map(Country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum.add(current));
+
 
         //Then
         Assert.assertEquals(testPeopleSum, totalPeople);
