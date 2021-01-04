@@ -12,10 +12,9 @@ public class RpsRunner {
         System.out.println("SCISSORS");
         System.out.println();
         playerName();
-        while (rounds < 3) {
+        howManyRounds();
 
-
-            //rounds counter
+        while (rounds < playerRounds) {
 
             String playerMove = playerMove();
             String computerMove = computerMove();
@@ -29,11 +28,11 @@ public class RpsRunner {
             } else {
                 System.out.println(computerMove.equals(ROCK) ? "Computer Wins!" : playerName + " wins!");
             }
-             rounds++;
-
-
-
+            rounds++;
         }
+
+        System.out.println(playerName + " has been playing " + rounds + " times");
+
     }
 
     public static final String ROCK = "ROCK";
@@ -41,6 +40,14 @@ public class RpsRunner {
     public static final String SCISSORS = "SCISSORS";
     public static String playerName = "";
     public static int rounds = 0;
+    public static int playerRounds = 0;
+
+    public static int howManyRounds() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("How many rounds you wish to play?");
+        playerRounds = in.nextInt();
+        return playerRounds;
+    }
 
     public static String playerName() {
         Scanner in = new Scanner(System.in);
@@ -52,7 +59,7 @@ public class RpsRunner {
     public static String playerMove() {
         Scanner in = new Scanner(System.in);
         System.out.println("Make your choice: ");
-        String playerInput = in.next();
+        String playerInput = in.next().toUpperCase();
         System.out.println(playerName + " move: " + playerInput);
         return playerInput;
     }
@@ -66,8 +73,8 @@ public class RpsRunner {
                 aiMove = ROCK;
                 break;
             case 2:
-               aiMove = PAPER;
-               break;
+                aiMove = PAPER;
+                break;
             case 3:
                 aiMove = SCISSORS;
                 break;
@@ -77,9 +84,4 @@ public class RpsRunner {
         System.out.println("Computer`s move: " + aiMove);
         return aiMove;
     }
-
-
-
-
-
 }
