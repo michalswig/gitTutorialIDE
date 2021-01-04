@@ -23,7 +23,6 @@ public final class SimpleProduct {
         if (this == o) return true;
         if (!(o instanceof SimpleProduct)) return false;
         SimpleProduct that = (SimpleProduct) o;
-        //co to jest powyższa linia
         return productName.equals(that.productName);
     }
 }

@@ -82,7 +82,7 @@ public final class TaskList {
 
         TaskList taskList = (TaskList) o;
 
-        if (getTasks() != null ? !getTasks().equals(taskList.getTasks()) : taskList.getTasks() != null) return false;
+        //if (getTasks() != null ? !getTasks().equals(taskList.getTasks()) : taskList.getTasks() != null) return false;
         return getName() != null ? getName().equals(taskList.getName()) : taskList.getName() == null;
     }
 
