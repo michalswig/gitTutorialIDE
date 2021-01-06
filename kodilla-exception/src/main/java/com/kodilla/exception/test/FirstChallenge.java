@@ -2,7 +2,7 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public static void main(String[] args) throws ArithmeticException {
+    public static void main(String[] args) /*throws ArithmeticException*/ {
         FirstChallenge firstChallenge = new FirstChallenge();
         try {
             double result = firstChallenge.divide(3,0);
