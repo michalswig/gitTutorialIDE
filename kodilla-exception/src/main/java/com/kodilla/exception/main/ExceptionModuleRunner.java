@@ -8,12 +8,10 @@ public class ExceptionModuleRunner {
     public static void main(String[] args) {
         FileReader fileReader = new FileReader();
         try {
-            fileReader.readFile("");
+            fileReader.readFile("names.txt");
         } catch(FileReaderException e){
             System.out.println("Error while reading");
         }
-
-
 
     }
 

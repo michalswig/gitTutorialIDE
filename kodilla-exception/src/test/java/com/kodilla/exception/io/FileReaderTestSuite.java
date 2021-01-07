@@ -7,22 +7,22 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class FileReaderTestSuite {
 
-    @Test
-    void testReadFile() {
-        //given
-        FileReader fileReader = new FileReader();
-        //when & then
-        assertDoesNotThrow(() -> fileReader.readFile(""));
-    }
-
-    @Test
-    void whenFileDoesNotExistReadFileShouldThrowException() {
-        //given
-        FileReader fileReader = new FileReader();
-        String fileName = "no_file.txt";
-        //when & then
-        assertThrows(FileReaderException.class, () -> fileReader.readFile(fileName));
-    }
+//    @Test
+//    void testReadFile() {
+//        //given
+//        FileReader fileReader = new FileReader();
+//        //when & then
+//        assertDoesNotThrow(() -> fileReader.readFile(""));
+//    }
+//
+//    @Test
+//    void whenFileDoesNotExistReadFileShouldThrowException() {
+//        //given
+//        FileReader fileReader = new FileReader();
+//        String fileName = "no_file.txt";
+//        //when & then
+//        assertThrows(FileReaderException.class, () -> fileReader.readFile(fileName));
+//    }
 
     @Test
     void testReadFileWithName(){
@@ -35,7 +35,4 @@ public class FileReaderTestSuite {
                 () -> assertDoesNotThrow(() -> fileReader.readFile("names.txt"))
         );
     }
-
-
-
 }

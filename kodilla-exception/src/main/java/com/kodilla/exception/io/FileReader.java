@@ -8,6 +8,7 @@ public class FileReader {
 
     public void readFile(final String fileName) throws FileReaderException {
 
+//linijka 9 deklaracja, może być wyjątek
 //        ClassLoader classLoader = getClass().getClassLoader();
 //        File file = new File(classLoader.getResource("names.txt").getFile());
 //        try (Stream<String> fileLines = Files.lines(Paths.get(file.getPath()))){
@@ -23,7 +24,7 @@ public class FileReader {
 //    }
 
         ClassLoader classLoader = getClass().getClassLoader();
-        try(Stream<String> fileLines = Files.lines(Paths.get(classLoader.getResource("fileName").toURI()))){
+        try(Stream<String> fileLines = Files.lines(Paths.get(classLoader.getResource("names.txt").toURI()))){
             fileLines.forEach(System.out::println);
         } catch (Exception e) {
             throw new FileReaderException();
