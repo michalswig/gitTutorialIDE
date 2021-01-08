@@ -15,6 +15,7 @@ public class RoutePlannerRunner {
         RoutePlanner routePlanner = new RoutePlanner();
 
         try {
+//            routePlanner.findFlight(w456);
 //            routePlanner.findFlight(a476);
 //            routePlanner.findFlight(e456);
             routePlanner.findFlight(w456);
@@ -23,9 +24,5 @@ public class RoutePlannerRunner {
         } finally {
             System.out.println("You can always try different connection If you like!");
         }
-
-
-
     }
-
 }

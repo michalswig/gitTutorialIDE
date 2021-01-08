@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class RoutePlanner {
 
-
     public void findFlight(Flight flight) throws RouteNotFoundException {
 
         Map<String, Boolean> airportCheck = new HashMap<>();
@@ -22,10 +21,6 @@ public class RoutePlanner {
         } else {
             throw new RouteNotFoundException("Unable to check the system");
         }
-
-
-
     }
-
 
 }
