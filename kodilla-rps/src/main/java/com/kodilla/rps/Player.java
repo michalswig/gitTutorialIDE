@@ -17,7 +17,7 @@ public class Player {
         this.name = name;
     }
 
-    public RpsChoice getChoice() {
+    public RpsChoice getPlayerChoice() {
         return rpsChooser.getChoice();
     }
 

@@ -1,96 +1,63 @@
 package com.kodilla.rps;
 
-public class RpsRunner {
-//    public static void main(String[] args) {
-//
-//        System.out.println("Start the game, make your choice:");
-//        System.out.println("ROCK");
-//        System.out.println("PAPER");
-//        System.out.println("SCISSORS");
-//        System.out.println();
-//        playerName();
-//        howManyRounds();
-//
-//        while (rounds < playerRounds) {
-//
-//            String playerMove = playerMove();
-//            String computerMove = computerMove();
-//
-//            if(playerMove.equals(computerMove)) {
-//                System.out.println("no winner! its a tie!");
-//            } else if (playerMove.equals(PAPER)) {
-//                System.out.println(computerMove.equals(ROCK) ? playerName + " wins!" : "Computer Wins!");
-//            } else  if (playerMove.equals(ROCK)) {
-//                System.out.println(computerMove.equals(SCISSORS) ? playerName + " wins!" : "Computer Wins!");
-//            } else {
-//                System.out.println(computerMove.equals(ROCK) ? "Computer Wins!" : playerName + " wins!");
-//            }
-//            rounds++;
-//        }
-//
-//        System.out.println(playerName + " has been playing " + rounds + " times");
-//
-//    }
+import java.util.Scanner;
 
+public class RpsRunner {
 
     public static void main(String[] args) {
-        Player playerOne = new Human("Adam");
+
+
+        int roundsNumber = howManyRounds();
+        String playerName = playerName();
+        Player playerOne = new Human(playerName);
+        //playerOne.setName(playerName());
         Player playerTwo = new Computer("AI");
+        int winNumberPlayerOne = 0;
+        int winNUmberPlayerTwo = 0;
 
-        for(int i = 0; i<=3; i++){
-            playerOne.
+        int counter = 1;
+        while (counter < roundsNumber){
+
+            RpsChoice playerOneChoice = playerOne.getPlayerChoice();
+            RpsChoice playerTwoChoice = playerTwo.getPlayerChoice();
+
+            if(playerOneChoice.wins(playerTwoChoice) == 0) {
+                winNumberPlayerOne++;
+                winNUmberPlayerTwo++;
+                System.out.println("round number " + counter + " its a draw");
+            }  else if(playerOneChoice.wins(playerTwoChoice) == 1) {
+                winNumberPlayerOne++;
+                System.out.println("round number " + counter + ": " + playerOne.getName() + " has won");
+            } else {
+                winNUmberPlayerTwo++;
+                System.out.println("round number " + counter + ": " + playerTwo.getName() + " has won");
+            }
+            counter++;
         }
+        System.out.println();
+        System.out.println("*************");
+        System.out.println("Game is finished, we have " + counter + " rounds this time" );
+        System.out.println("Score: " + playerOne.getName() + ": " + winNumberPlayerOne + " points won " + " vs. " + playerTwo.getName() + ": " + winNUmberPlayerTwo + " points won");
 
+        if(winNumberPlayerOne == winNUmberPlayerTwo) {
+            System.out.println("its a draw!");
+        }
+        else if (winNumberPlayerOne > winNUmberPlayerTwo) {
+            System.out.println( playerOne.getName() + " has won!");
+        } else {
+            System.out.println("AI has won!");
+        }
     }
 
-//    public static final String ROCK = "ROCK";
-//    public static final String PAPER = "PAPER";
-//    public static final String SCISSORS = "SCISSORS";
-//    public static String playerName = "";
-//    public static int rounds = 0;
-//    public static int playerRounds = 0;
-//
-//    public static int howManyRounds() {
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("How many rounds you wish to play?");
-//        playerRounds = in.nextInt();
-//        return playerRounds;
-//    }
-//
-//    public static String playerName() {
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("Write PLayer`s name:");
-//        playerName = in.next();
-//        return playerName;
-//    }
-//
-//    public static String playerMove() {
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("Make your choice: ");
-//        String playerInput = in.next().toUpperCase();
-//        System.out.println(playerName + " move: " + playerInput);
-//        return playerInput;
-//    }
-//
-//    public static String computerMove() {
-//        Random randomAI = new Random();
-//        String aiMove = "";
-//        int aiInput = randomAI.nextInt(3);
-//        switch(aiInput) {
-//            case 0:
-//                aiMove = ROCK;
-//                break;
-//            case 1:
-//                aiMove = PAPER;
-//                break;
-//            case 2:
-//                aiMove = SCISSORS;
-//                break;
-//            default:
-//                System.out.println("Wrong data, please try again");
-//        }
-//        System.out.println("Computer`s move: " + aiMove);
-//        return aiMove;
-//    }
+    public static int howManyRounds() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("How many rounds you wish to play?");
+        return in.nextInt();
+    }
 
+    public static String playerName() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Write PLayer`s name:");
+        return in.next();
+    }
 }

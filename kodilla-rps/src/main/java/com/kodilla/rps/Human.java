@@ -6,7 +6,4 @@ public class Human extends Player {
         super(name, new HumanChooser());
     }
 
-
-
-
 }
