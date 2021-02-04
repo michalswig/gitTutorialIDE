@@ -127,34 +127,34 @@ public class TicTacToe {
         placeMove(board, userTurn, 'X');
     }
 
-    private static void placeMove(char[][] board, int userTurn, char symbol) {
+    private static void placeMove(char[][] board, int userTurn, char figure) {
         switch (userTurn) {
             case 1:
-                board[0][0] = symbol;
+                board[0][0] = figure;
                 break;
             case 2:
-                board[0][1] = symbol;
+                board[0][1] = figure;
                 break;
             case 3:
-                board[0][2] = symbol;
+                board[0][2] = figure;
                 break;
             case 4:
-                board[1][0] = symbol;
+                board[1][0] = figure;
                 break;
             case 5:
-                board[1][1] = symbol;
+                board[1][1] = figure;
                 break;
             case 6:
-                board[1][2] = symbol;
+                board[1][2] = figure;
                 break;
             case 7:
-                board[2][0] = symbol;
+                board[2][0] = figure;
                 break;
             case 8:
-                board[2][1] = symbol;
+                board[2][1] = figure;
                 break;
             case 9:
-                board[2][2] = symbol;
+                board[2][2] = figure;
                 break;
             default:
                 System.out.println(":)");

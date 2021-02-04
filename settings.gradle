@@ -5,4 +5,5 @@ include 'kodilla-rps'
 include 'kodilla-exception'
 include 'RpsVol2'
 include 'Rps2'
+include 'kodilla-good-patterns'
 
