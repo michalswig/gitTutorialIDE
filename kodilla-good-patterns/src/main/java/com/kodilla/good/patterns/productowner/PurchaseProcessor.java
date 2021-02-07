@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.productowner;
 
+import java.time.LocalDateTime;
+
 public class PurchaseProcessor {
     private InformationService informationService;
     private  PurchaseService purchaseService;
@@ -10,6 +12,12 @@ public class PurchaseProcessor {
         this.purchaseService = purchaseService;
         this.purchaseRepository = purchaseRepository;
     }
+
+    public PurchaseDto process(User user, Item item, LocalDateTime purchaseTime){
+        boolean isBought = purchaseService.purchased(user, item, purchaseTime);
+    }
+
+
 
 
 }
