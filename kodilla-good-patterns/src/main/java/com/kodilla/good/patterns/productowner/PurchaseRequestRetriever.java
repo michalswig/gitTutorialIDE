@@ -6,11 +6,9 @@ public class PurchaseRequestRetriever {
 
     public PurchaseRequest retrieve() {
         User user = new User("John", "Doe");
-        LocalDateTime purchaseTime = LocalDateTime.of(2020,  3, 23, 12,0);
-        Item item = new Item(21);
+        LocalDateTime purchaseTime = LocalDateTime.of(2021, 1, 15, 13, 23);
+        Item item = new Item(21097);
         return new PurchaseRequest(user, item, purchaseTime);
     }
-
-
 
 }

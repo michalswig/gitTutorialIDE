@@ -1,10 +1,8 @@
 package com.kodilla.good.patterns.productowner;
 
-import java.time.LocalDateTime;
-
 public class PurchaseProcessor {
     private InformationService informationService;
-    private  PurchaseService purchaseService;
+    private PurchaseService purchaseService;
     private PurchaseRepository purchaseRepository;
 
     public PurchaseProcessor(InformationService informationService, PurchaseService purchaseService, PurchaseRepository purchaseRepository) {
@@ -13,11 +11,16 @@ public class PurchaseProcessor {
         this.purchaseRepository = purchaseRepository;
     }
 
-    public PurchaseDto process(User user, Item item, LocalDateTime purchaseTime){
-        boolean isBought = purchaseService.purchased(user, item, purchaseTime);
+    public PurchaseDto process(PurchaseRequest purchaseRequest) {
+        boolean isBought = purchaseService.purchased(purchaseRequest.getUser(),
+                purchaseRequest.getItem(), purchaseRequest.getPurchaseTime());
+        if (isBought) {
+            informationService.inform(purchaseRequest.getUser());
+            purchaseRepository.createRental(purchaseRequest.getUser(),
+                    purchaseRequest.getItem(), purchaseRequest.getPurchaseTime());
+            return new PurchaseDto(purchaseRequest.getUser(), purchaseRequest.getItem(), true);
+        } else {
+            return new PurchaseDto(purchaseRequest.getUser(), purchaseRequest.getItem(), false);
+        }
     }
-
-
-
-
 }
