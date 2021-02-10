@@ -15,25 +15,13 @@ public class OrderProcessor {
         this.orderRepository = orderRepository;
     }
 
-    public InformationService getInformationService() {
-        return informationService;
-    }
-
-    public OrderService getOrderService() {
-        return orderService;
-    }
-
-    public OrderRepository getOrderRepository() {
-        return orderRepository;
-    }
-
-    public OrderDto process(OrderRequest orderRequest){
+    public OrderDto process(OrderRequest orderRequest) {
         boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getQuantity(), orderRequest.getShop());
-        if(isOrdered){
+        if (isOrdered) {
             informationService.inform(orderRequest.getUser());
             orderRepository.createOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getQuantity(), orderRequest.getShop());
             return new OrderDto(orderRequest.getUser(), true);
-        } else{
+        } else {
             return new OrderDto(orderRequest.getUser(), false);
         }
     }
