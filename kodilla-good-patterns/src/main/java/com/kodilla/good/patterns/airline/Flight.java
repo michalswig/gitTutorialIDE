@@ -1,16 +1,28 @@
 package com.kodilla.good.patterns.airline;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Flight {
     private final Airport depDest;
     private final Airport arrDest;
-    private final List<Airport> stopOver;
+    private final Set<Airport> stopOvers = new HashSet<>();
 
-    public Flight(Airport depDest, Airport arrDest, List<Airport> stopOver) {
+    public Flight(Airport depDest, Airport arrDest, Set<Airport> stopOvers) {
         this.depDest = depDest;
         this.arrDest = arrDest;
-        this.stopOver = stopOver;
+        this.stopOvers.addAll(stopOvers);
+    }
+
+    public Flight(Airport depDest, Airport arrDest, Airport stopOver) {
+        this.depDest = depDest;
+        this.arrDest = arrDest;
+        this.stopOvers.add(stopOver);
+    }
+
+    public Flight(Airport depDest, Airport arrDest) {
+        this.depDest = depDest;
+        this.arrDest = arrDest;
     }
 
     public Airport getDepDest() {
@@ -21,12 +33,8 @@ public class Flight {
         return arrDest;
     }
 
-    public List<Airport> getStopOverList() {
-        return stopOver;
-    }
-
-    public boolean isStopOverValid(Airport airport){
-        return stopOver.contains(airport);
+    public Set<Airport> getStopOverList() {
+        return stopOvers;
     }
 
     @Override
@@ -34,7 +42,7 @@ public class Flight {
         return "Flight{" +
                 "depDest=" + depDest +
                 ", arrDest=" + arrDest +
-                ", stopOver=" + stopOver +
+                ", stopOver=" + stopOvers +
                 '}';
     }
 

@@ -18,7 +18,6 @@ public class Airport {
         return iataCode;
     }
 
-
     @Override
     public String toString() {
         return "Airport{" +

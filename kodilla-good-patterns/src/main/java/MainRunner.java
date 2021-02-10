@@ -8,9 +8,6 @@ import com.kodilla.good.patterns.food2door.logic.OrderProcessor;
 import com.kodilla.good.patterns.food2door.logic.OrderRequestRetriever;
 import com.kodilla.good.patterns.productowner.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainRunner {
     public static void main(String[] args) {
         System.out.println("Task no 1");
@@ -42,23 +39,22 @@ public class MainRunner {
         Airport airportKtw = new Airport("Katowice", "KTW");
 
         FlightServiceFinder quickService = new FlightServiceFinder();
-        List<Airport> stopOverPlace = new ArrayList<>();
-        stopOverPlace.add(airportWaw);
+        Airport stopOverPlace = new Airport("Warszawa", "WAW");
 
-        quickService.addFlight(airportWaw, airportKrk, null);
-        quickService.addFlight(airportKrk, airportWaw, null);
-        quickService.addFlight(airportWaw, airportWro, null);
-        quickService.addFlight(airportWro, airportWaw, null);
+        quickService.addFlight(airportWaw, airportKrk);
+        quickService.addFlight(airportKrk, airportWaw);
+        quickService.addFlight(airportWaw, airportWro);
+        quickService.addFlight(airportWro, airportWaw);
         quickService.addFlight(airportWaw, airportKtw, stopOverPlace);
         quickService.addFlight(airportKtw, airportWaw, stopOverPlace);
-        quickService.addFlight(airportWaw, airportPoz, stopOverPlace);
-        quickService.addFlight(airportPoz, airportWaw, stopOverPlace);
+        quickService.addFlight(airportKrk, airportPoz, stopOverPlace);
+        quickService.addFlight(airportPoz, airportKrk, stopOverPlace);
 
         quickService.findDeparture(airportWaw);
         System.out.println();
         quickService.findArrival(airportKrk);
         System.out.println();
-        quickService.findDepFlightViaStopOver(airportPoz, airportWaw, stopOverPlace);
+        quickService.findDepFlightViaStopOver(airportPoz, airportKrk, stopOverPlace);
 
 
     }
