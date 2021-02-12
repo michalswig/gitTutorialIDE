@@ -2,6 +2,9 @@ package com.kodilla.good.patterns.food2door.logic;
 
 import com.kodilla.good.patterns.food2door.data.OrderDto;
 import com.kodilla.good.patterns.food2door.data.OrderRequest;
+import com.kodilla.good.patterns.food2door.logic.interfaces.InformationService;
+import com.kodilla.good.patterns.food2door.logic.interfaces.OrderRepository;
+import com.kodilla.good.patterns.food2door.logic.interfaces.OrderService;
 
 public class OrderProcessor {
 

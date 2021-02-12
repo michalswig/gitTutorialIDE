@@ -12,9 +12,4 @@ public class OrderDto {
     public User getUser() {
         return user;
     }
-
-    public boolean isOrdered() {
-        return isOrdered;
-    }
-
 }
