@@ -17,9 +17,29 @@ class CalculatorTestSuite {
 
         //Given
         //When
-        Double score = calculator.add(2, 4);
+        Double score1 = calculator.add(2, 4);
         //Then
-        assertEquals(6, score);
+        assertEquals(6, score1);
+
+        //Given
+        //When
+        Double score2 = calculator.sub(4, 2);
+        //Then
+        assertEquals(2, score2);
+
+        //Given
+        //When
+        Double score3 = calculator.div(4, 2);
+        //Then
+        assertEquals(2, score3);
+
+        //Given
+        //When
+        Double score4 = calculator.mul(2, 4);
+        //Then
+        assertEquals(8, score4);
+
     }
+
 
 }
