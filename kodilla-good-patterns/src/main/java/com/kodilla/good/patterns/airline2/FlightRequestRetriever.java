@@ -12,8 +12,6 @@ public class FlightRequestRetriever {
         Flight a5 = new Flight("Gdansk", "Warszawa");
         Flight a6 = new Flight("Szczecin", "Gdansk");
         Flight a7 = new Flight("Poznan", "Gdansk");
-        Flight a8 = new Flight("Poznan", "Gdansk");
-
-        return Arrays.asList(a1, a2, a3, a4, a5, a6, a7, a8);
+        return Arrays.asList(a1, a2, a3, a4, a5, a6, a7);
     }
 }
