@@ -2,19 +2,11 @@ package com.kodilla.good.patterns.airline;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FlightServiceFinder {
 
     private final List<Flight> connectionList = new ArrayList<>();
-
-    public void addFlight(Airport depDest, Airport arrDest, Set<Airport> stopOvers){
-        connectionList.add(new Flight(depDest, arrDest, stopOvers));
-    }
-
-    public void addFlight(Airport depDest, Airport arrDest, Airport stopOver){
-        connectionList.add(new Flight(depDest, arrDest, stopOver));
-    }
 
     public void addFlight(Airport depDest, Airport arrDest){
         connectionList.add(new Flight(depDest, arrDest));
@@ -30,18 +22,30 @@ public class FlightServiceFinder {
         connectionList.stream().filter(e -> e.getDepDest().equals(arrDest)).forEach(System.out::println);
     }
 
-    public void findDepFlightViaStopOver(Airport depDest, Airport arrDest, Airport stopOver){
-        System.out.println("Departures from " + depDest.getName() + " with stopover");
-        connectionList.stream().filter(e -> (e.getDepDest().equals(depDest)))
-                .filter(e -> (e.getArrDest().equals(arrDest)))
-                .filter(e -> (e.getStopOverList().contains(stopOver))).forEach(System.out::println);
+//    public void findDepFlightViaStopOver(Airport depDest, Airport arrDest, Airport stopOver){
+//        System.out.println("Departures from " + depDest.getName() + " with stopover");
+//        connectionList.stream().filter(e -> (e.getDepDest().equals(depDest)))
+//                .filter(e -> (e.getArrDest().equals(arrDest)))
+//                .filter(e -> (e.getStopOverList().contains(stopOver))).forEach(System.out::println);
+//    }
+//
+//    public void findDepFlightViaStopOvers(Airport depDest, Airport arrDest, Set<Airport> stopOvers){
+//        System.out.println("Departures from " + depDest.getName() + " with stopover");
+//        connectionList.stream().filter(e -> (e.getDepDest().equals(depDest)))
+//                .filter(e -> (e.getArrDest().equals(arrDest)))
+//                .filter(e -> (e.getStopOverList().containsAll(stopOvers))).forEach(System.out::println);
+//    }
+
+    public void findConnection(Airport depDest, Airport arrDest){
+        for (Flight flight : connectionList){
+
+        }
     }
 
-    public void findDepFlightViaStopOvers(Airport depDest, Airport arrDest, Set<Airport> stopOvers){
-        System.out.println("Departures from " + depDest.getName() + " with stopover");
-        connectionList.stream().filter(e -> (e.getDepDest().equals(depDest)))
-                .filter(e -> (e.getArrDest().equals(arrDest)))
-                .filter(e -> (e.getStopOverList().containsAll(stopOvers))).forEach(System.out::println);
+    private List<Flight> getAllFlightsFrom(Airport depDest){
+        return  connectionList.stream().filter(e -> (e.getDepDest().equals(depDest)))
+                .collect(Collectors.toList());
     }
+
 
 }
